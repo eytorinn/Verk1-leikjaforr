@@ -21,16 +21,16 @@ public class PlayerMovement : MonoBehaviour
     {
         rb.AddForce(0, 0, forwardForce * Time.deltaTime); //sendum hlutinn áfram
 
-        if (Input.GetKey("d") )
+        if (Input.GetKey("d") ) // notum "d" til að hreyfa til hægri
         {
             rb.AddForce(sideForce * Time.deltaTime, 0, 0, ForceMode.VelocityChange);
         }
-        if (Input.GetKey("a"))
+        if (Input.GetKey("a")) // og a til að hreyfa til vinstri
         {
             rb.AddForce(-sideForce * Time.deltaTime, 0, 0, ForceMode.VelocityChange);
         }
 
-        if (rb.position.y < -1f)
+        if (rb.position.y < -1f) //Þetta er gert til þess að spilari tapar þegar hann dettur af borðinu.
         {
             FindObjectOfType<GameManager>().EndGame();
         }
